@@ -4,6 +4,10 @@ from typing import TYPE_CHECKING, List, Optional
 
 from plotting_utilities import plot_country, plot_path
 
+import math 
+
+import numpy as np
+
 if TYPE_CHECKING:
     from pathlib import Path
 
