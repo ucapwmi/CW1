@@ -69,7 +69,13 @@ class Location:
         return self.__str__()
 
     def __str__(self):
-        raise NotImplementedError
+
+        theta_over_pi = round(self.theta / math.pi, 2)
+        
+        if self.depot == True:
+            return f"{self.name} [depot] in {self.region} @ ({round(self.r, 2)}m, {theta_over_pi}pi)"
+        else:
+            return f"{self.name} [settlement] in {self.region} @ ({round(self.r, 2)}m, {theta_over_pi}pi)"
 
     def distance_to(self, other):
         raise NotImplementedError
