@@ -20,6 +20,28 @@ def travel_time(
 
 
 class Location:
+    def __init__(self, name:str, region:str, r, theta, depot) -> None:
+        if not isinstance(name, str) or not isinstance(region, str):
+            raise ValueError("name and region should be strings")
+        # check whether the name and region should have each word in them capitalised, and remaining characters in each word should be lowercase. 
+        formatted_name = name.title()
+        formatted_region = region.title()
+
+        if not isinstance(r, (int, float)) or r < 0:
+            raise ValueError("r should be non-negative")
+        
+        if not isinstance(theta, (int, float)) or not -math.pi <= theta <= math.pi:
+            raise ValueError("theta should between -π and π")
+        
+        if not isinstance(depot, bool):
+            raise ValueError("depot should be boolean")
+        
+        self.name = formatted_name
+        self.region = formatted_region
+        self.r = float(r) #polar radius
+        self.theta = float(theta) #polar angle, radius
+        self.depot = depot
+
     def __repr__(self):
         """
         Do not edit this function.
